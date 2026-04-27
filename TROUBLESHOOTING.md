@@ -191,15 +191,16 @@ vercel
 
 ## 🔐 Environment Variables
 
-Create `.env` file (if needed for future backend):
+Create `.env` file (or set Vercel env vars):
 ```env
-VITE_API_URL=http://localhost:3000/api
+VITE_API_BASE_URL=http://localhost:8081/api
+# (Supported too) VITE_API_URL=http://localhost:8081/api
 VITE_APP_NAME=WellNest
 ```
 
 Access in code:
 ```javascript
-const apiUrl = import.meta.env.VITE_API_URL;
+const apiUrl = import.meta.env.VITE_API_BASE_URL || import.meta.env.VITE_API_URL;
 ```
 
 ## 📱 Browser Compatibility

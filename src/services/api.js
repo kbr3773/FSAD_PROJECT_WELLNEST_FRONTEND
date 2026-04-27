@@ -1,4 +1,14 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8081/api';
+function normalizeBaseUrl(url) {
+  if (!url) return url;
+  return url.endsWith('/') ? url.slice(0, -1) : url;
+}
+
+// Support both names since older docs/examples often use VITE_API_URL.
+const API_BASE_URL = normalizeBaseUrl(
+  import.meta.env.VITE_API_BASE_URL ||
+    import.meta.env.VITE_API_URL ||
+    'http://localhost:8081/api'
+);
 
 async function request(path, options = {}) {
   const response = await fetch(`${API_BASE_URL}${path}`, {
