@@ -195,6 +195,7 @@ Create `.env` file (or set Vercel env vars):
 ```env
 VITE_API_BASE_URL=http://localhost:8081/api
 # (Supported too) VITE_API_URL=http://localhost:8081/api
+VITE_DEMO_MODE=false
 VITE_APP_NAME=WellNest
 ```
 
